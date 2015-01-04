@@ -72,8 +72,6 @@ class NestProvider extends AbstractProvider
     public function userDetails($response, AccessToken $token)
     {
 
-        $response = (array)($response->characters[0]);
-        $user = new Nest($response);
-        return $user;
+        return new Nest($response);
     }
 }
