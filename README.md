@@ -9,11 +9,11 @@ To install, use composer:
 composer require grumpydictator/nest-oauth2-provider
 ```
 
-Usage is the same as the league's OAuth client, using `\Grumpydictator\NestOauth2Provider\Provider\Nest` as the provider.
+Usage is the same as the league's OAuth client, using `\Grumpydictator\NestOauth2Provider\Provider\NestProvider` as the provider.
 For example:
 
 ```php
-$provider = new \Grumpydictator\NestOauth2Provider\Provider\Nest([
+$provider = new \Grumpydictator\NestOauth2Provider\Provider\NestProvider([
     'clientId' => "YOUR_CLIENT_ID",
     'clientSecret' => "YOUR_CLIENT_SECRET",
     'redirectUri' => "http://your-redirect-uri"
