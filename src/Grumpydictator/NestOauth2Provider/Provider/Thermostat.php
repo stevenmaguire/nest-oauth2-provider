@@ -77,7 +77,6 @@ class Thermostat
         $this->ambient_temperature_f     = isset($data->ambient_temperature_f) ? intval($data->ambient_temperature_f) : null;
         $this->ambient_temperature_c     = isset($data->ambient_temperature_c) ? floatval($data->ambient_temperature_c) : null;
         $this->humidity                  = isset($data->humidity) ? intval($data->humidity) : null;
-        var_dump($this->device_id);
 
     }
 
