@@ -46,6 +46,14 @@ class Structure
     /**
      * @return array
      */
+    public function getSmokeCoAlarms()
+    {
+        return $this->smoke_co_alarms;
+    }
+
+    /**
+     * @return array
+     */
     public function toArray()
     {
         $arr = [
@@ -60,22 +68,42 @@ class Structure
             'thermostats'            => [],
             'smoke_co_alarms'        => [],
         ];
-        /** @var Thermostat $thermostat */
+
+        /**
+         * @var string     $identifier
+         * @var Thermostat $thermostat
+         */
         foreach ($this->thermostats as $identifier => $thermostat) {
             $arr['thermostats'][$identifier] = $thermostat->toArray();
+        }
+        /**
+         * @var string       $identifier
+         * @var SmokeCoAlarm $smokeCoAlarm
+         */
+        foreach ($this->smoke_co_alarms as $identifier => $smokeCoAlarm) {
+            $arr['smoke_co_alarms'][$identifier] = $smokeCoAlarm->toArray();
         }
 
         return $arr;
     }
 
     /**
-     * @param            $identifier
+     * @param string     $identifier
      * @param Thermostat $thermostat
      */
     public function addThermostat($identifier, Thermostat $thermostat)
     {
         $this->thermostats[$identifier] = $thermostat;
 
+    }
+
+    /**
+     * @param string       $identifier
+     * @param SmokeCoAlarm $alarm
+     */
+    public function addSmokeCoAlarm($identifier, SmokeCoAlarm $alarm)
+    {
+        $this->smoke_co_alarms[$identifier] = $alarm;
     }
 
 

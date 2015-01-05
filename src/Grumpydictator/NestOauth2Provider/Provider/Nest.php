@@ -21,10 +21,16 @@ class Nest
             $this->structures[$identifier] = new Structure($structure);
         }
 
+        // add thermostats
         foreach ($object->devices->thermostats as $identifier => $thermostat) {
             $thermos = new Thermostat($thermostat);
             $this->structures[$thermos->structure_id]->addThermostat($identifier, $thermos);
+        }
 
+        // add smoke/CO alarms
+        foreach ($object->devices->smoke_co_alarms as $identifier => $alarm) {
+            $smokeCoAlarm = new SmokeCoAlarm($alarm);
+            $this->structures[$smokeCoAlarm->structure_id]->addSmokeCoAlarm($identifier, $smokeCoAlarm);
         }
     }
 

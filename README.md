@@ -59,6 +59,10 @@ if (!isset($_GET['code'])) {
             foreach($structure->getThermostats() as $thermostat) {
                 echo $thermostat->name_long.': ' . $thermostat->ambient_temperature_c.'C'."\n";
             }
+            /** @var \Grumpydictator\NestOauth2Provider\Provider\SmokeCoAlarm $alarm */
+            foreach($structure->getSmokeCoAlarms() as $alarm) {
+                echo $alarm->name_long.': ' . $alarm->co_alarm_state.'/' . $alarm->smoke_alarm_state ."\n";
+            }
 
         }
 
@@ -79,7 +83,3 @@ if (!isset($_GET['code'])) {
 ### Refreshing a Token
 
 The Google Nest API's access token is valid for ~10 years, and should not need refreshing.
-
-## Attention
-
-Nest Protect is not yet supported.
