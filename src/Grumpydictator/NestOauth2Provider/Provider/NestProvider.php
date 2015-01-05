@@ -67,7 +67,7 @@ class NestProvider extends AbstractProvider
      * @param object      $response
      * @param AccessToken $token
      *
-     * @return mixed
+     * @return Nest
      */
     public function userDetails($response, AccessToken $token)
     {
