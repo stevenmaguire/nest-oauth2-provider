@@ -54,10 +54,10 @@ if (!isset($_GET['code'])) {
         // show all structures and thermostats:
         /** @var \Grumpydictator\NestOauth2Provider\Provider\Structure $structure */
         foreach($this->getStructures() as $structure) {
-            echo $structure->structure_id."\n";
+            echo $structure->name."\n"; 
             /** @var \Grumpydictator\NestOauth2Provider\Provider\Thermostat $thermostat */
             foreach($structure->getThermostats() as $thermostat) {
-                echo $thermostat->device_id.': ' . $thermostat->ambient_temperature_c.'C'."\n";
+                echo $thermostat->name_long.': ' . $thermostat->ambient_temperature_c.'C'."\n";
             }
 
         }
