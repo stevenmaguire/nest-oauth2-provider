@@ -12,7 +12,7 @@ class Nest
     public $structures = [];
 
     /**
-     * @param array $attributes
+     * @param \stdClass $object
      */
     public function __construct(\stdClass $object)
     {
@@ -29,7 +29,7 @@ class Nest
     }
 
     /**
-     *
+     * @return array
      */
     public function toArray()
     {
@@ -42,5 +42,15 @@ class Nest
         }
 
         return $arr;
+
+
+    }
+
+    /**
+     * @return array
+     */
+    public function getStructures()
+    {
+        return $this->structures;
     }
 }

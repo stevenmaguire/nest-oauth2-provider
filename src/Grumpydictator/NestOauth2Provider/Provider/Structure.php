@@ -36,7 +36,15 @@ class Structure
     }
 
     /**
-     *
+     * @return array
+     */
+    public function getThermostats()
+    {
+        return $this->thermostats;
+    }
+
+    /**
+     * @return array
      */
     public function toArray()
     {
