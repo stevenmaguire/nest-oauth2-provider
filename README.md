@@ -74,22 +74,6 @@ if (!isset($_GET['code'])) {
 
     // Use this to interact with an API on the users behalf
     echo $token->accessToken;
-    
-    // or use the provider to get what you need:
-    /** @var \Grumpydictator\NestOauth2Provider\Provider\Nest $nest */ 
-    $nest = $provider->userDetails($token);
-    
-    foreach($nest->getStructures() as $structure) {
-        foreach($structure->getThermostats() as $thermostat) {
-            echo 'Structure '.$structure->name.' reports a temperature of '.
-            $thermostat->ambient_temperature_c.'C at thermostat '.$thermostat->long_name."\n";
-        }
-    }
-    
-    
-
-    // Unix timestamp of when the access token will expire, and need refreshing
-    echo $token->expires;
 }
 ```
 
