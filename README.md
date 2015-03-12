@@ -22,6 +22,8 @@ Example:
 $provider = new \Grumpydictator\NestOauth2Provider\Provider\NestProvider([
     'clientId'  =>  'XXXXXXXX',
     'clientSecret'  =>  'XXXXXXXX',
+    'redirectUri' => 'https://example.com', // https is mandatory for Google Nest
+    'scopes' => [], // scopes are set at the Google Nest dev-site. 
 ));
 
 if (!isset($_GET['code'])) {
@@ -42,7 +44,8 @@ if (!isset($_GET['code'])) {
 
     $token = $provider->getAccessToken('authorization_code', [
     	'code' => $_GET['code'],
-    	'grant_type' => 'authorization_code'
+    	'grant_type' => 'authorization_code',
+    	
     ]);
 
     // Optional: Now you have a token you can look up a users profile data
