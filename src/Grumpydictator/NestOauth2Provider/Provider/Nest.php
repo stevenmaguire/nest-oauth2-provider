@@ -22,16 +22,20 @@ class Nest
         }
 
         // add thermostats
-        foreach ($object->devices->thermostats as $identifier => $thermostat) {
-            $thermos = new Thermostat($thermostat);
-            $this->structures[$thermos->structure_id]->addThermostat($identifier, $thermos);
-        }
+		if(property_exists($object->devices, 'thermostats')) {
+			foreach ($object->devices->thermostats as $identifier => $thermostat) {
+				$thermos = new Thermostat($thermostat);
+				$this->structures[$thermos->structure_id]->addThermostat($identifier, $thermos);
+			}
+		}
 
         // add smoke/CO alarms
-        foreach ($object->devices->smoke_co_alarms as $identifier => $alarm) {
-            $smokeCoAlarm = new SmokeCoAlarm($alarm);
-            $this->structures[$smokeCoAlarm->structure_id]->addSmokeCoAlarm($identifier, $smokeCoAlarm);
-        }
+		if(property_exists($object->devices, 'smoke_co_alarms')) {
+			foreach ($object->devices->smoke_co_alarms as $identifier => $alarm) {
+				$smokeCoAlarm = new SmokeCoAlarm($alarm);
+				$this->structures[$smokeCoAlarm->structure_id]->addSmokeCoAlarm($identifier, $smokeCoAlarm);
+			}
+		}
     }
 
     /**
